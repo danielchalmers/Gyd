@@ -4,9 +4,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gyd"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:m="clr-namespace:Gyd.MarkupExtensions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="{x:Static local:App.Title}"
+        Width="800"
+        Height="600"
+        UseLayoutRounding="True"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <materialDesign:DialogHost Focusable="False">
+        <materialDesign:DialogHost.DialogContent>
+            <StackPanel Margin="16">
+                <StackPanel.Resources>
+                    <Style TargetType="Button"
+                           BasedOn="{StaticResource MaterialDesignFlatButton}" />
+                </StackPanel.Resources>
+
+                <TextBox materialDesign:HintAssist.Hint="URLs (separated by new line)"
+                         AcceptsReturn="True" />
+
+                <StackPanel Margin="0,16,0,0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                            CommandParameter="{m:SystemType Bool=True}"
+                            Content="ADD"
+                            IsDefault="True" />
+
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                            CommandParameter="{m:SystemType Bool=False}"
+                            Content="CANCEL"
+                            IsCancel="True" />
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid>
+            <ItemsControl Focusable="False">
+            </ItemsControl>
+
+            <Button Margin="16"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                <materialDesign:PackIcon Kind="Plus"
+                                         Width="32"
+                                         Height="32" />
+            </Button>
+        </Grid>
+    </materialDesign:DialogHost>
 </Window>
