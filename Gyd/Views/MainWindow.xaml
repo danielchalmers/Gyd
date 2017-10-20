@@ -20,7 +20,8 @@
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    <materialDesign:DialogHost Focusable="False">
+    <materialDesign:DialogHost Focusable="False"
+                               IsOpen="{Binding IsDialogOpen}">
         <materialDesign:DialogHost.DialogContent>
             <StackPanel Margin="16">
                 <StackPanel.Resources>
@@ -29,17 +30,18 @@
                 </StackPanel.Resources>
 
                 <TextBox materialDesign:HintAssist.Hint="URLs (separated by new line)"
-                         AcceptsReturn="True" />
+                         AcceptsReturn="True"
+                         Text="{Binding DialogText}" />
 
                 <StackPanel Margin="0,16,0,0"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    <Button Command="{Binding CloseDialogCommand}"
                             CommandParameter="{m:SystemType Bool=True}"
                             Content="ADD"
                             IsDefault="True" />
 
-                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    <Button Command="{Binding CloseDialogCommand}"
                             CommandParameter="{m:SystemType Bool=False}"
                             Content="CANCEL"
                             IsCancel="True" />
