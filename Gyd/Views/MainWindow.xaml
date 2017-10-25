@@ -49,8 +49,27 @@
             </StackPanel>
         </materialDesign:DialogHost.DialogContent>
         <Grid>
-            <ItemsControl Focusable="False">
-            </ItemsControl>
+            <DataGrid ItemsSource="{Binding Clients}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
+                      CanUserReorderColumns="False"
+                      Padding="4">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Title"
+                                        Binding="{Binding Info.Title}"
+                                        SortDirection="Ascending" />
+                    <DataGridTextColumn Header="Total Size"
+                                        Binding="{Binding Info.VideoSize}" />
+                    <DataGridTextColumn Header="Rate"
+                                        Binding="{Binding Info.DownloadRate}" />
+                    <DataGridTextColumn Header="Progress"
+                                        Binding="{Binding Info.VideoProgress}" />
+                    <DataGridTextColumn Header="ETA"
+                                        Binding="{Binding Info.Eta}" />
+                </DataGrid.Columns>
+            </DataGrid>
 
             <Button Margin="16"
                     HorizontalAlignment="Right"
