@@ -23,7 +23,9 @@
         <vm:MainViewModel />
     </Window.DataContext>
     <materialDesign:DialogHost Focusable="False"
-                               DialogClosingCallback="{Binding DialogClosingHandler}">
+                               DialogClosingCallback="{Binding DialogClosingHandler}"
+                               CloseOnClickAway="True"
+                               CloseOnClickAwayParameter="{m:SystemType Bool=False}">
         <materialDesign:DialogHost.DialogContent>
             <StackPanel Margin="16">
                 <StackPanel.Resources>
