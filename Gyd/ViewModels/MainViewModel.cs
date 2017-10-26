@@ -1,9 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Windows.Input;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using MaterialDesignThemes.Wpf;
 using NYoutubeDL;
 
 namespace Gyd.ViewModels
@@ -11,29 +10,23 @@ namespace Gyd.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private string _dialogText = string.Empty;
-        private bool _isDialogOpen;
 
         public MainViewModel()
         {
-            CloseDialogCommand = new RelayCommand<bool>(CloseDialogExecute);
             Clients = new ObservableCollection<YoutubeDL>();
             Clients.CollectionChanged += Clients_CollectionChanged;
+
+            DialogClosingHandler += OnDialogClosing;
         }
 
         public ObservableCollection<YoutubeDL> Clients { get; }
 
-        public ICommand CloseDialogCommand { get; }
+        public DialogClosingEventHandler DialogClosingHandler { get; set; }
 
         public string DialogText
         {
             get => _dialogText;
             set => Set(ref _dialogText, value);
-        }
-
-        public bool IsDialogOpen
-        {
-            get => _isDialogOpen;
-            set => Set(ref _isDialogOpen, value);
         }
 
         private void AddVideo(string url)
@@ -53,9 +46,9 @@ namespace Gyd.ViewModels
             }
         }
 
-        private void CloseDialogExecute(bool result)
+        private void OnDialogClosing(object sender, DialogClosingEventArgs e)
         {
-            IsDialogOpen = false;
+            var result = (bool)e.Parameter;
 
             if (result)
             {

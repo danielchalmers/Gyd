@@ -23,7 +23,7 @@
         <vm:MainViewModel />
     </Window.DataContext>
     <materialDesign:DialogHost Focusable="False"
-                               IsOpen="{Binding IsDialogOpen}">
+                               DialogClosingCallback="{Binding DialogClosingHandler}">
         <materialDesign:DialogHost.DialogContent>
             <StackPanel Margin="16">
                 <StackPanel.Resources>
@@ -38,12 +38,12 @@
                 <StackPanel Margin="0,16,0,0"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button Command="{Binding CloseDialogCommand}"
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                             CommandParameter="{m:SystemType Bool=True}"
                             Content="ADD"
                             IsDefault="True" />
 
-                    <Button Command="{Binding CloseDialogCommand}"
+                    <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                             CommandParameter="{m:SystemType Bool=False}"
                             Content="CANCEL"
                             IsCancel="True" />
