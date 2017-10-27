@@ -99,6 +99,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Costura.Fody">
+      <Version>1.6.2</Version>
+    </PackageReference>
     <PackageReference Include="MaterialDesignThemes">
       <Version>2.3.1.953</Version>
     </PackageReference>
@@ -108,6 +111,9 @@
     <PackageReference Include="NYoutubeDL">
       <Version>0.5.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
