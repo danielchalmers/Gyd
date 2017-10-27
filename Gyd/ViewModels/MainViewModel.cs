@@ -4,17 +4,18 @@ using System.Linq;
 using GalaSoft.MvvmLight;
 using MaterialDesignThemes.Wpf;
 using NYoutubeDL;
+using static NYoutubeDL.Helpers.Enums;
 
 namespace Gyd.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private string _dialogText = string.Empty;
-
         public MainViewModel()
         {
             Clients = new ObservableCollection<YoutubeDL>();
             Clients.CollectionChanged += Clients_CollectionChanged;
+
+            DialogViewModel = new DialogViewModel();
 
             DialogClosingHandler += OnDialogClosing;
         }
@@ -23,20 +24,7 @@ namespace Gyd.ViewModels
 
         public DialogClosingEventHandler DialogClosingHandler { get; set; }
 
-        public string DialogText
-        {
-            get => _dialogText;
-            set => Set(ref _dialogText, value);
-        }
-
-        private void AddVideo(string url)
-        {
-            var client = new YoutubeDL();
-
-            client.VideoUrl = url;
-
-            Clients.Add(client);
-        }
+        public DialogViewModel DialogViewModel { get; }
 
         private void Clients_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -48,21 +36,34 @@ namespace Gyd.ViewModels
 
         private void OnDialogClosing(object sender, DialogClosingEventArgs e)
         {
+            var vm = DialogViewModel;
             var result = (bool)e.Parameter;
 
             if (result)
             {
-                // Split dialog text into URLs by newline.
-                var urls = DialogText.Split('\n').Where(x => !string.IsNullOrWhiteSpace(x));
-
-                // Clear dialog text.
-                DialogText = string.Empty;
-
-                // Add URLs.
-                foreach (var url in urls)
+                foreach (var url in vm.GetURLs())
                 {
-                    AddVideo(url);
+                    var client = new YoutubeDL();
+
+                    client.VideoUrl = url;
+
+                    // Set up post-processing options for selected format.
+                    // Format can be video or audio.
+                    var format = vm.SelectedFormat.Object;
+                    if (format is VideoFormat)
+                    {
+                        client.Options.VideoFormatOptions.Format = (VideoFormat)format;
+                    }
+                    else if (format is AudioFormat)
+                    {
+                        client.Options.PostProcessingOptions.AudioFormat = (AudioFormat)format;
+                        client.Options.PostProcessingOptions.ExtractAudio = true;
+                    }
+
+                    Clients.Add(client);
                 }
+
+                vm.ClearInput();
             }
         }
 

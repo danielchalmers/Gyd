@@ -27,7 +27,8 @@
                                CloseOnClickAway="True"
                                CloseOnClickAwayParameter="{m:SystemType Bool=False}">
         <materialDesign:DialogHost.DialogContent>
-            <StackPanel Margin="16">
+            <StackPanel DataContext="{Binding DialogViewModel}"
+                        Margin="16">
                 <StackPanel.Resources>
                     <Style TargetType="Button"
                            BasedOn="{StaticResource MaterialDesignFlatButton}" />
@@ -35,7 +36,29 @@
 
                 <TextBox materialDesign:HintAssist.Hint="URLs (separated by new line)"
                          AcceptsReturn="True"
-                         Text="{Binding DialogText}" />
+                         Text="{Binding InputText}" />
+
+                <ComboBox ItemsSource="{Binding Formats}"
+                          SelectedItem="{Binding SelectedFormat, Mode=TwoWay}"
+                          Margin="0,8,0,0">
+                    <ComboBox.GroupStyle>
+                        <GroupStyle>
+                            <GroupStyle.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"
+                                               HorizontalAlignment="Center"
+                                               FontWeight="Medium" />
+                                </DataTemplate>
+                            </GroupStyle.HeaderTemplate>
+                        </GroupStyle>
+                    </ComboBox.GroupStyle>
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Object}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
                 <StackPanel Margin="0,16,0,0"
                             Orientation="Horizontal"
