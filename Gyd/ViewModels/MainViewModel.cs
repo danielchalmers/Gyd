@@ -28,10 +28,20 @@ namespace Gyd.ViewModels
 
         private void Clients_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            foreach (var client in e.NewItems.OfType<YoutubeDL>())
+            if (e.NewItems != null)
             {
-                // Start downloading new clients.
-                StartClientDownload(client);
+                foreach (var client in e.NewItems.OfType<YoutubeDL>())
+                {
+                    StartClientDownload(client);
+                }
+            }
+
+            if (e.OldItems != null)
+            {
+                foreach (var client in e.OldItems.OfType<YoutubeDL>())
+                {
+                    StopClientDownload(client);
+                }
             }
         }
 
@@ -78,6 +88,11 @@ namespace Gyd.ViewModels
 
             // Create the process and start downloading.
             client.Download();
+        }
+
+        private void StopClientDownload(YoutubeDL client)
+        {
+            client.KillProcess();
         }
     }
 }
