@@ -30,46 +30,54 @@ namespace Gyd.ViewModels
         {
             foreach (var client in e.NewItems.OfType<YoutubeDL>())
             {
+                // Start downloading new clients.
                 StartClientDownload(client);
             }
         }
 
         private void OnDialogClosing(object sender, DialogClosingEventArgs e)
         {
-            var vm = DialogViewModel;
-            var result = (bool)e.Parameter;
-
-            if (result)
+            // A false parameter is sent when the dialog is cancelled.
+            // If the closing parameter is false, don't perform any actions.
+            if (!(bool)e.Parameter)
             {
-                foreach (var url in vm.GetURLs())
+                return;
+            }
+
+            foreach (var url in DialogViewModel.GetURLs())
+            {
+                var client = new YoutubeDL();
+
+                client.VideoUrl = url;
+
+                // Set up post-processing options for the selected format.
+                // Format can be of type video or audio.
+                var format = DialogViewModel.SelectedFormat.Object;
+                if (format is VideoFormat)
                 {
-                    var client = new YoutubeDL();
-
-                    client.VideoUrl = url;
-
-                    // Set up post-processing options for selected format.
-                    // Format can be video or audio.
-                    var format = vm.SelectedFormat.Object;
-                    if (format is VideoFormat)
-                    {
-                        client.Options.VideoFormatOptions.Format = (VideoFormat)format;
-                    }
-                    else if (format is AudioFormat)
-                    {
-                        client.Options.PostProcessingOptions.AudioFormat = (AudioFormat)format;
-                        client.Options.PostProcessingOptions.ExtractAudio = true;
-                    }
-
-                    Clients.Add(client);
+                    client.Options.VideoFormatOptions.Format = (VideoFormat)format;
+                }
+                else if (format is AudioFormat)
+                {
+                    client.Options.PostProcessingOptions.AudioFormat = (AudioFormat)format;
+                    client.Options.PostProcessingOptions.ExtractAudio = true;
                 }
 
-                vm.ClearInput();
+                // Add client to active collection.
+                // When added, the client will start to download.
+                Clients.Add(client);
             }
+
+            DialogViewModel.ClearInput();
         }
 
         private void StartClientDownload(YoutubeDL client)
         {
-            client.Download(prepareDownload: true);
+            // Prepare arguments for the youtube-dl process.
+            client.PrepareDownload();
+
+            // Create the process and start downloading.
+            client.Download();
         }
     }
 }
