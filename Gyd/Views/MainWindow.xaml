@@ -75,45 +75,67 @@
                 </StackPanel>
             </StackPanel>
         </materialDesign:DialogHost.DialogContent>
-        <Grid>
-            <DataGrid ItemsSource="{Binding Clients}"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="False"
-                      CanUserResizeColumns="False"
-                      CanUserResizeRows="False"
-                      CanUserReorderColumns="False"
-                      CanUserAddRows="False"
-                      CanUserDeleteRows="True"
-                      Padding="4">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Title"
-                                        Binding="{Binding Info.Title}"
-                                        SortDirection="Ascending"
-                                        IsReadOnly="True" />
-                    <DataGridTextColumn Header="Size"
-                                        Binding="{Binding Info.VideoSize}"
-                                        IsReadOnly="True" />
-                    <DataGridTextColumn Header="Rate"
-                                        Binding="{Binding Info.DownloadRate}"
-                                        IsReadOnly="True" />
-                    <DataGridTextColumn Header="Percent"
-                                        Binding="{Binding Info.VideoProgress}"
-                                        IsReadOnly="True" />
-                    <DataGridTextColumn Header="ETA"
-                                        Binding="{Binding Info.Eta}"
-                                        IsReadOnly="True" />
-                </DataGrid.Columns>
-            </DataGrid>
+        <DockPanel LastChildFill="True">
+            <materialDesign:ColorZone DockPanel.Dock="Top"
+                                      Padding="16"
+                                      materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                      Mode="PrimaryMid">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="22"
+                               Text="GUI for youtube-dl" />
 
-            <Button Margin="16"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
-                <materialDesign:PackIcon Kind="Plus"
-                                         Width="32"
-                                         Height="32" />
-            </Button>
-        </Grid>
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges"
+                                             StaysOpen="False"
+                                             HorizontalAlignment="Right">
+                        <StackPanel>
+                        </StackPanel>
+                    </materialDesign:PopupBox>
+                </Grid>
+            </materialDesign:ColorZone>
+
+            <Grid>
+                <DataGrid DockPanel.Dock="Bottom"
+                          ItemsSource="{Binding Clients}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="False"
+                          CanUserResizeColumns="False"
+                          CanUserResizeRows="False"
+                          CanUserReorderColumns="False"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="True"
+                          Padding="4">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Title"
+                                            Binding="{Binding Info.Title}"
+                                            SortDirection="Ascending"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn Header="Size"
+                                            Binding="{Binding Info.VideoSize}"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn Header="Rate"
+                                            Binding="{Binding Info.DownloadRate}"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn Header="Percent"
+                                            Binding="{Binding Info.VideoProgress}"
+                                            IsReadOnly="True" />
+                        <DataGridTextColumn Header="ETA"
+                                            Binding="{Binding Info.Eta}"
+                                            IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Margin="16"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}">
+                    <materialDesign:PackIcon Kind="Plus"
+                                             Width="32"
+                                             Height="32" />
+                </Button>
+            </Grid>
+        </DockPanel>
     </materialDesign:DialogHost>
 </Window>
