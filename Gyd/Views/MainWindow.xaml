@@ -90,6 +90,8 @@
                                              StaysOpen="False"
                                              HorizontalAlignment="Right">
                         <StackPanel>
+                            <Button Content="_About"
+                                    Command="{Binding AboutCommand}" />
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </Grid>

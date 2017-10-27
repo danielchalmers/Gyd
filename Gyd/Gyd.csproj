@@ -59,6 +59,10 @@
     </ApplicationDefinition>
     <Compile Include="MarkupExtensions\SystemTypeExtension.cs" />
     <Compile Include="Utils\AssemblyUtil.cs" />
+    <Page Include="Views\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +74,9 @@
     <Compile Include="Models\CategorizedObject.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -90,7 +97,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -114,12 +121,36 @@
     <PackageReference Include="NYoutubeDL">
       <Version>0.5.1</Version>
     </PackageReference>
+    <PackageReference Include="WpfAboutView">
+      <Version>1.1.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Gyd.ico" />
+    <Resource Include="Gyd.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\Costura.Fody License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\MVVM Light License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\WpfAboutView License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\Gyd License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\NYoutubeDL License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\MaterialDesignInXamlToolkit License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\Material Design License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

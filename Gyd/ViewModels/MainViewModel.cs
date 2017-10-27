@@ -1,7 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Gyd.Views;
 using MaterialDesignThemes.Wpf;
 using NYoutubeDL;
 using static NYoutubeDL.Helpers.Enums;
@@ -12,6 +15,8 @@ namespace Gyd.ViewModels
     {
         public MainViewModel()
         {
+            AboutCommand = new RelayCommand(About);
+
             Clients = new ObservableCollection<YoutubeDL>();
             Clients.CollectionChanged += Clients_CollectionChanged;
 
@@ -20,11 +25,18 @@ namespace Gyd.ViewModels
             DialogClosingHandler += OnDialogClosing;
         }
 
+        public ICommand AboutCommand { get; }
+
         public ObservableCollection<YoutubeDL> Clients { get; }
 
         public DialogClosingEventHandler DialogClosingHandler { get; set; }
 
         public DialogViewModel DialogViewModel { get; }
+
+        private void About()
+        {
+            new About().ShowDialog();
+        }
 
         private void Clients_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {

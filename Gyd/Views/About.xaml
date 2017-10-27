@@ -1,0 +1,73 @@
+﻿<Window x:Class="Gyd.Views.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:root="clr-namespace:Gyd"
+        xmlns:p="clr-namespace:Gyd.Properties"
+        xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Window.Title>
+        <MultiBinding StringFormat="{}About {0}">
+            <Binding Source="{x:Static root:App.Title}" />
+        </MultiBinding>
+    </Window.Title>
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="16" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <av:AboutView Grid.Row="0"
+                      AppIconSource="pack://application:,,,/Gyd.ico">
+            <av:AboutView.Credits>
+                <av:Credit Name="{x:Static root:App.Title}"
+                           Author="{x:Static root:App.Company}"
+                           Website="https://github.com/danielchalmers/Gyd"
+                           LicenseText="{x:Static p:Resources.Gyd_License}" />
+
+                <av:Credit Name="Fody, Costura.Fody"
+                           Author="Simon Cropp &amp; contributors"
+                           Website="https://github.com/Fody/Costura"
+                           LicenseText="{x:Static p:Resources.Costura_Fody_License}" />
+
+                <av:Credit Name="Material Design"
+                           Author="Google"
+                           Website="https://design.google"
+                           LicenseText="{x:Static p:Resources.Material_Design_License}" />
+
+                <av:Credit Name="MaterialDesignThemes"
+                           Author="James Willock"
+                           Website="https://github.com/ButchersBoy/MaterialDesignInXamlToolkit"
+                           LicenseText="{x:Static p:Resources.MaterialDesignInXamlToolkit_License}" />
+
+                <av:Credit Name="MVVM Light"
+                           Author="GalaSoft"
+                           Website="http://galasoft.ch/mvvm"
+                           LicenseText="{x:Static p:Resources.MVVM_Light_License}" />
+
+                <av:Credit Name="NYoutubeDL"
+                           Author="Brian Allred"
+                           Website="https://github.com/brianallred/nyoutubedl"
+                           LicenseText="{x:Static p:Resources.NYoutubeDL_License}" />
+
+                <av:Credit Name="WpfAboutView"
+                           Author="Daniel Chalmers"
+                           Website="https://github.com/danielchalmers/WpfAboutView"
+                           LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
+            </av:AboutView.Credits>
+        </av:AboutView>
+
+        <Button Grid.Row="2"
+                Content="_OK"
+                Click="OKButton_OnClick"
+                IsDefault="True"
+                IsCancel="True"
+                Width="75"
+                HorizontalAlignment="Right" />
+    </Grid>
+</Window>
