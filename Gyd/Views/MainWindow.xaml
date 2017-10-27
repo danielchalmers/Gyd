@@ -90,13 +90,13 @@
                                         Binding="{Binding Info.Title}"
                                         SortDirection="Ascending"
                                         IsReadOnly="True" />
-                    <DataGridTextColumn Header="Total Size"
+                    <DataGridTextColumn Header="Size"
                                         Binding="{Binding Info.VideoSize}"
                                         IsReadOnly="True" />
                     <DataGridTextColumn Header="Rate"
                                         Binding="{Binding Info.DownloadRate}"
                                         IsReadOnly="True" />
-                    <DataGridTextColumn Header="Progress"
+                    <DataGridTextColumn Header="Percent"
                                         Binding="{Binding Info.VideoProgress}"
                                         IsReadOnly="True" />
                     <DataGridTextColumn Header="ETA"
