@@ -45,7 +45,6 @@
 
                 <ComboBox ItemsSource="{Binding Formats}"
                           SelectedItem="{Binding SelectedFormat, Mode=TwoWay}"
-                          SelectedIndex="{Binding SelectedFormatIndex, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
                           Margin="0,8,0,0">
                     <ComboBox.GroupStyle>
                         <GroupStyle>
