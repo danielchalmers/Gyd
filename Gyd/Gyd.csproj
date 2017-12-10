@@ -156,5 +156,8 @@
   <ItemGroup>
     <None Include="Resources\Licenses\Material Design License.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Licenses\WpfWindowPlacement License.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

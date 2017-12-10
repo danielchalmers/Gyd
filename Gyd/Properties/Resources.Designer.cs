@@ -61,18 +61,13 @@ namespace Gyd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2012 Simon Cropp and contributors
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///T [rest of string was truncated]&quot;;.
+        ///The above  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Costura_Fody_License {
             get {
@@ -85,14 +80,9 @@ namespace Gyd.Properties {
         ///
         ///Copyright (c) 2017 Daniel Chalmers
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyrigh [rest of string was truncated]&quot;;.
+        ///The above copyright not [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Gyd_License {
             get {
@@ -101,20 +91,21 @@ namespace Gyd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///                                 Apache License
-        ///                           Version 2.0, January 2004
-        ///                        http://www.apache.org/licenses/
+        ///   Looks up a localized string similar to Apache License
         ///
-        ///   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        ///Version 2.0, January 2004
         ///
-        ///   1. Definitions.
+        ///http://www.apache.org/licenses/
         ///
-        ///      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
-        ///      and distribution as defined by Sections 1 through 9 of this document.
+        ///TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
         ///
-        ///      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
-        ///      the copyright owner that  [rest of string was truncated]&quot;;.
+        ///1. Definitions.
+        ///
+        ///&quot;License&quot; shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+        ///
+        ///&quot;Licensor&quot; shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+        ///
+        ///&quot;Legal Entity&quot; shall mean the union of the acting entity and all other entities that c [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Material_Design_License {
             get {
@@ -123,16 +114,11 @@ namespace Gyd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) James Willock,  Mulholland Software and Contributors
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the f [rest of string was truncated]&quot;;.
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following condit [rest of string was truncated]&quot;;.
         /// </summary>
         public static string MaterialDesignInXamlToolkit_License {
             get {
@@ -141,14 +127,11 @@ namespace Gyd.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///   Looks up a localized string similar to MIT License
         ///
+        ///Copyright (c) 2009 - 2016 Laurent Bugnion (GalaSoft), laurent@galasoft.ch
         ///
-        ///Copyright (c) 2009 - 2014 Laurent Bugnion
-        ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-        ///
-        ///The  [rest of string was truncated]&quot;;.
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following [rest of string was truncated]&quot;;.
         /// </summary>
         public static string MVVM_Light_License {
             get {
@@ -161,14 +144,9 @@ namespace Gyd.Properties {
         ///
         ///Copyright (c) 2017 BrianAllred
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyright no [rest of string was truncated]&quot;;.
+        ///The above copyright notice  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string NYoutubeDL_License {
             get {
@@ -181,18 +159,28 @@ namespace Gyd.Properties {
         ///
         ///Copyright (c) 2017 Daniel Chalmers
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyrigh [rest of string was truncated]&quot;;.
+        ///The above copyright not [rest of string was truncated]&quot;;.
         /// </summary>
         public static string WpfAboutView_License {
             get {
                 return ResourceManager.GetString("WpfAboutView_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIT License
+        ///
+        ///Copyright (c) 2017 Daniel Chalmers
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        ///
+        ///The above copyright not [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string WpfWindowPlacement_License {
+            get {
+                return ResourceManager.GetString("WpfWindowPlacement_License", resourceCulture);
             }
         }
     }

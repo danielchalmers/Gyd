@@ -59,6 +59,11 @@
                            Author="Daniel Chalmers"
                            Website="https://github.com/danielchalmers/WpfAboutView"
                            LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
+
+                <av:Credit Name="WpfWindowPlacement"
+                           Author="Daniel Chalmers"
+                           Website="https://github.com/danielchalmers/WpfWindowPlacement"
+                           LicenseText="{x:Static p:Resources.WpfWindowPlacement_License}" />
             </av:AboutView.Credits>
         </av:AboutView>
 
