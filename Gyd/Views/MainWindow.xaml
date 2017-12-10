@@ -7,6 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:m="clr-namespace:Gyd.MarkupExtensions"
         xmlns:vm="clr-namespace:Gyd.ViewModels"
+        xmlns:p="clr-namespace:Gyd.Properties"
         mc:Ignorable="d"
         Title="{x:Static local:App.Title}"
         ResizeMode="CanMinimize"
@@ -40,6 +41,7 @@
 
                 <ComboBox ItemsSource="{Binding Formats}"
                           SelectedItem="{Binding SelectedFormat, Mode=TwoWay}"
+                          SelectedIndex="{Binding SelectedFormatIndex, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
                           Margin="0,8,0,0">
                     <ComboBox.GroupStyle>
                         <GroupStyle>
