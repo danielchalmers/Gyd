@@ -46,5 +46,36 @@ namespace Gyd.Properties {
                 this["SelectedFormatIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<WindowPlacement xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <Length>0</Length>
+  <Flags />
+  <ShowCommand>Hide</ShowCommand>
+  <MinimizedPosition>
+    <X>0</X>
+    <Y>0</Y>
+  </MinimizedPosition>
+  <MaximizedPosition>
+    <X>0</X>
+    <Y>0</Y>
+  </MaximizedPosition>
+  <NormalBounds>
+    <Left>0</Left>
+    <Top>0</Top>
+    <Right>0</Right>
+    <Bottom>0</Bottom>
+  </NormalBounds>
+</WindowPlacement>")]
+        public global::WpfWindowPlacement.WindowPlacement WindowPlacement {
+            get {
+                return ((global::WpfWindowPlacement.WindowPlacement)(this["WindowPlacement"]));
+            }
+            set {
+                this["WindowPlacement"] = value;
+            }
+        }
     }
 }

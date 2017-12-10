@@ -8,6 +8,7 @@
         xmlns:m="clr-namespace:Gyd.MarkupExtensions"
         xmlns:p="clr-namespace:Gyd.Properties"
         xmlns:vm="clr-namespace:Gyd.ViewModels"
+        xmlns:wp="clr-namespace:WpfWindowPlacement;assembly=WpfWindowPlacement"
         mc:Ignorable="d"
         Title="{x:Static local:App.Title}"
         ResizeMode="CanMinimize"
@@ -19,7 +20,9 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        wp:WindowPlacementProperties.Placement="{Binding WindowPlacement, Source={x:Static p:Settings.Default}}"
+        wp:WindowPlacementProperties.TrackPlacement="True">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
