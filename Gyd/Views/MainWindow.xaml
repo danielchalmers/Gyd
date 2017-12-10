@@ -65,7 +65,7 @@
                             HorizontalAlignment="Right">
                     <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                             CommandParameter="{m:SystemType Bool=True}"
-                            Content="ADD"
+                            Content="DOWNLOAD"
                             IsDefault="True" />
 
                     <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
