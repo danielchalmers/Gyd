@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows;
+using Gyd.Properties;
 using Gyd.Utils;
 
 namespace Gyd
@@ -18,5 +19,19 @@ namespace Gyd
         public static string Path { get; } = Assembly.GetPath();
         public static string Title { get; } = Assembly.GetTitle();
         public static Version Version { get; } = Assembly.GetVersion();
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            if (Settings.Default.UpgradeRequired)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.UpgradeRequired = false;
+            }
+        }
+
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
+            Settings.Default.Save();
+        }
     }
 }
