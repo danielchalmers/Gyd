@@ -111,13 +111,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Costura.Fody">
-      <Version>1.6.2</Version>
+      <Version>3.1.2</Version>
     </PackageReference>
     <PackageReference Include="MaterialDesignThemes">
-      <Version>2.3.1.953</Version>
+      <Version>2.4.1.1101</Version>
     </PackageReference>
     <PackageReference Include="MvvmLightLibs">
-      <Version>5.3.0</Version>
+      <Version>5.4.1.1</Version>
     </PackageReference>
     <PackageReference Include="NYoutubeDL">
       <Version>0.6.3</Version>
