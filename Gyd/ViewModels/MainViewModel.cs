@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using Gyd.Views;
 using MaterialDesignThemes.Wpf;
 using NYoutubeDL;
 using static NYoutubeDL.Helpers.Enums;
@@ -35,7 +34,10 @@ namespace Gyd.ViewModels
 
         private void About()
         {
-            new About().ShowDialog();
+            new WpfAboutView.AboutDialog
+            {
+                AboutView = (WpfAboutView.AboutView)System.Windows.Application.Current.Resources["AboutView"]
+            }.ShowDialog();
         }
 
         private void Clients_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
