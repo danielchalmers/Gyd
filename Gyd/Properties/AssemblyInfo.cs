@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Daniel Chalmers")]
 [assembly: AssemblyProduct("Gyd")]
-[assembly: AssemblyCopyright("© Daniel Chalmers 2017")]
+[assembly: AssemblyCopyright("© Daniel Chalmers 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
