@@ -9,6 +9,8 @@
         xmlns:p="clr-namespace:Gyd.Properties"
         xmlns:vm="clr-namespace:Gyd.ViewModels"
         xmlns:wp="clr-namespace:WpfWindowPlacement;assembly=WpfWindowPlacement"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         Title="{x:Static local:App.Title}"
         ResizeMode="CanResize"
@@ -102,7 +104,14 @@
                 </Grid>
             </materialDesign:ColorZone>
 
-            <Grid>
+            <Grid AllowDrop="True">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Drop">
+                        <command:EventToCommand Command="{Binding DropCommand}"
+                                                PassEventArgsToCommand="True" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+
                 <DataGrid DockPanel.Dock="Bottom"
                           ItemsSource="{Binding Clients}"
                           AutoGenerateColumns="False"

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -15,6 +16,7 @@ namespace Gyd.ViewModels
         public MainViewModel()
         {
             AboutCommand = new RelayCommand(About);
+            DropCommand = new RelayCommand<DragEventArgs>(Drop);
 
             Clients = new ObservableCollection<YoutubeDL>();
             Clients.CollectionChanged += Clients_CollectionChanged;
@@ -26,6 +28,8 @@ namespace Gyd.ViewModels
 
         public ICommand AboutCommand { get; }
 
+        public ICommand DropCommand { get; }
+
         public ObservableCollection<YoutubeDL> Clients { get; }
 
         public DialogClosingEventHandler DialogClosingHandler { get; set; }
@@ -36,8 +40,17 @@ namespace Gyd.ViewModels
         {
             new WpfAboutView.AboutDialog
             {
-                AboutView = (WpfAboutView.AboutView)System.Windows.Application.Current.Resources["AboutView"]
+                AboutView = (WpfAboutView.AboutView)Application.Current.Resources["AboutView"]
             }.ShowDialog();
+        }
+
+        private void Drop(DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.StringFormat) && e.Data.GetData(DataFormats.StringFormat) is string dropText)
+            {
+                DialogViewModel.InputText = dropText;
+                OnDialogClosing(this, null);
+            }
         }
 
         private void Clients_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -63,10 +76,8 @@ namespace Gyd.ViewModels
         {
             // A false parameter is sent when the dialog is cancelled.
             // If the closing parameter is false, don't perform any actions.
-            if (!(bool)e.Parameter)
-            {
+            if (e?.Parameter is bool cancelled && !cancelled)
                 return;
-            }
 
             foreach (var url in DialogViewModel.GetURLs())
             {
