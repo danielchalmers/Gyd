@@ -118,7 +118,7 @@
       <Version>5.4.1.1</Version>
     </PackageReference>
     <PackageReference Include="NYoutubeDL">
-      <Version>0.6.3</Version>
+      <Version>0.10.1</Version>
     </PackageReference>
     <PackageReference Include="WpfAboutView">
       <Version>1.2.0</Version>

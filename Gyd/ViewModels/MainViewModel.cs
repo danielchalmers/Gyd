@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -57,18 +58,25 @@ namespace Gyd.ViewModels
         {
             if (e.NewItems != null)
             {
-                foreach (var client in e.NewItems.OfType<YoutubeDL>())
+                Parallel.ForEach(e.NewItems.OfType<YoutubeDL>(), async client =>
                 {
-                    StartClientDownload(client);
-                }
+                    await client.PrepareDownloadAsync();
+
+                    // The bindings are broken.
+                    // When the client is added to Clients, the DataGrid registers bindings to Client.Info properties.
+                    // But before the download starts, Info is null, and doesn't raise a notification when created.
+                    // RaisePropertyChanged(nameof(client.Info));
+
+                    await client.DownloadAsync();
+                });
             }
 
             if (e.OldItems != null)
             {
-                foreach (var client in e.OldItems.OfType<YoutubeDL>())
+                Parallel.ForEach(e.OldItems.OfType<YoutubeDL>(), client =>
                 {
-                    StopClientDownload(client);
-                }
+                    client.CancelDownload();
+                });
             }
         }
 
@@ -104,20 +112,6 @@ namespace Gyd.ViewModels
             }
 
             DialogViewModel.ClearInput();
-        }
-
-        private void StartClientDownload(YoutubeDL client)
-        {
-            // Prepare arguments for the youtube-dl process.
-            client.PrepareDownload();
-
-            // Create the process and start downloading.
-            client.Download();
-        }
-
-        private void StopClientDownload(YoutubeDL client)
-        {
-            client.KillProcess();
         }
     }
 }
