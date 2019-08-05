@@ -11,5 +11,14 @@ namespace Gyd.Views
         {
             InitializeComponent();
         }
+
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
+        {
+            new WpfAboutView.AboutDialog
+            {
+                Owner = this,
+                AboutView = (WpfAboutView.AboutView)Application.Current.Resources["AboutView"]
+            }.ShowDialog();
+        }
     }
 }

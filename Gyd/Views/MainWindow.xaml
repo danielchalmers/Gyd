@@ -98,7 +98,7 @@
                                              StaysOpen="False">
                         <StackPanel>
                             <Button Content="_About"
-                                    Command="{Binding AboutCommand}" />
+                                    Click="AboutButton_Click" />
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </Grid>

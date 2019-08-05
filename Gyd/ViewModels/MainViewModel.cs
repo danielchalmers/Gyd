@@ -16,7 +16,6 @@ namespace Gyd.ViewModels
     {
         public MainViewModel()
         {
-            AboutCommand = new RelayCommand(About);
             DropCommand = new RelayCommand<DragEventArgs>(Drop);
 
             Clients = new ObservableCollection<YoutubeDL>();
@@ -27,8 +26,6 @@ namespace Gyd.ViewModels
             DialogClosingHandler += OnDialogClosing;
         }
 
-        public ICommand AboutCommand { get; }
-
         public ICommand DropCommand { get; }
 
         public ObservableCollection<YoutubeDL> Clients { get; }
@@ -36,14 +33,6 @@ namespace Gyd.ViewModels
         public DialogClosingEventHandler DialogClosingHandler { get; set; }
 
         public DialogViewModel DialogViewModel { get; }
-
-        private void About()
-        {
-            new WpfAboutView.AboutDialog
-            {
-                AboutView = (WpfAboutView.AboutView)Application.Current.Resources["AboutView"]
-            }.ShowDialog();
-        }
 
         private void Drop(DragEventArgs e)
         {
