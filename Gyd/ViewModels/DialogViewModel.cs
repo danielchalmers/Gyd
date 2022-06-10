@@ -48,6 +48,7 @@ namespace Gyd.ViewModels
             {
                 yield return new CategorizedObject("Video", item);
             }
+
             foreach (var item in Enum.GetValues(typeof(AudioFormat)))
             {
                 yield return new CategorizedObject("Audio", item);

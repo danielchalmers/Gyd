@@ -49,13 +49,6 @@ namespace Gyd.ViewModels
             {
                 Parallel.ForEach(e.NewItems.OfType<YoutubeDL>(), async client =>
                 {
-                    await client.PrepareDownloadAsync();
-
-                    // The bindings are broken.
-                    // When the client is added to Clients, the DataGrid registers bindings to Client.Info properties.
-                    // But before the download starts, Info is null, and doesn't raise a notification when created.
-                    // RaisePropertyChanged(nameof(client.Info));
-
                     await client.DownloadAsync();
                 });
             }
@@ -78,9 +71,10 @@ namespace Gyd.ViewModels
 
             foreach (var url in DialogViewModel.GetURLs())
             {
-                var client = new YoutubeDL();
-
-                client.VideoUrl = url;
+                var client = new YoutubeDL
+                {
+                    VideoUrl = url
+                };
 
                 // Set up post-processing options for the selected format.
                 // Format can be of type video or audio.

@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-  </PropertyGroup>
-  <PropertyGroup>
     <ApplicationIcon>Gyd.ico</ApplicationIcon>
   </PropertyGroup>
+  
   <ItemGroup>
-    <PackageReference Include="Costura.Fody" Version="3.1.6" />
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MaterialDesignThemes" Version="2.6.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
-    <PackageReference Include="NYoutubeDL" Version="0.10.1" />
-    <PackageReference Include="WpfAboutView" Version="1.2.1" />
-    <PackageReference Include="WpfWindowPlacement" Version="2.0.0" />
+    <PackageReference Include="NYoutubeDL" Version="0.11.2" />
+    <PackageReference Include="WpfAboutView" Version="1.3.0" />
+    <PackageReference Include="WpfWindowPlacement" Version="4.0.2" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="FodyWeavers.xml" />
-  </ItemGroup>
+  
   <ItemGroup>
     <Resource Include="Gyd.ico" />
   </ItemGroup>
+  
 </Project>
